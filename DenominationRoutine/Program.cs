@@ -21,10 +21,9 @@ static void FindCombinations(List<int> numbers, int target, List<int> combinatio
 var numbers = new List<int>() { 10, 50, 100 };
 Console.WriteLine("Please enter one of thies numbers: 30, 50, 60, 80, 140, 230, 370, 610, 980");
 var validNumbers = new List<int>() { 30,50,60,80,140,230,370,610,980};
-var target = Convert.ToInt32(Console.ReadLine());
-if (!validNumbers.Contains(target))
-{
-    Console.WriteLine("Invalid number.");
-}
+var input = Console.ReadLine();
+if (string.IsNullOrEmpty(input)) input = "0";
+var target = Convert.ToInt32(input);
+if (!validNumbers.Contains(target)) Console.WriteLine("Invalid number.");
 Console.WriteLine();
 FindCombinations(numbers, target, new List<int>(), 0);
